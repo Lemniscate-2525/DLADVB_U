@@ -86,9 +86,29 @@ tab1, tab2 = st.tabs(
 )
 
 with tab1:
+    st.markdown("##### Quick Test Samples:")
+    col_a, col_b, col_c, col_d = st.columns(4)
+
+    if "log_input" not in st.session_state:
+        st.session_state["log_input"] = "Receiving block blk_-1608999687919862906 src: /10.250.19.102:50010 dest: /10.250.19.102:50010"
+
+    with col_a:
+        if st.button("🟢 Normal Event"):
+            st.session_state["log_input"] = "Receiving block blk_-1608999687919862906 src: /10.250.19.102:50010 dest: /10.250.19.102:50010"
+    with col_b:
+        if st.button("🚨 Disk Failure"):
+            st.session_state["log_input"] = "DiskErrorException: Disk failure detected on /data/hdfs/data1 during write of block blk_8338592096525859757"
+    with col_c:
+        if st.button("🚨 Replica Corrupt"):
+            st.session_state["log_input"] = "FATAL: All replicas corrupted for block blk_7915466481811490367"
+    with col_d:
+        if st.button("🚨 Connection Timeout"):
+            st.session_state["log_input"] = "java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel on DataNode 10.40.129.173:50010"
+
     log = st.text_area(
         "Enter Log",
-        height=200,
+        value=st.session_state["log_input"],
+        height=140,
         placeholder="e.g. Receiving block blk_-1608999687919862906 src: /10.250.19.102:50010 dest: /10.250.19.102:50010"
     )
 
