@@ -1,0 +1,401 @@
+Text,Label
+Received block blk_7922331746517419368 of size 67108864 from /10.251.199.19,0
+java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel on DataNode 10.40.129.173:50010,1
+FATAL: All replicas corrupted for block blk_7915466481811490367,1
+org.apache.hadoop.ipc.RemoteException: Cannot create block blk_3046543610010224097 on DataNode 10.64.220.81:50010,1
+org.apache.hadoop.ipc.RemoteException: Cannot create block blk_2153746959042822554 on DataNode 10.44.4.49:50010,1
+BLOCK* NameSystem.delete: blk_6031076349976322578 is added to invalidSet of 10.251.67.225:50010,0
+org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot delete block blk_6169585555663170106. Name node is in safe mode,1
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.250.15.198:50010 is added to blk_8894334107354324777 size 3549832,0
+FATAL: All replicas corrupted for block blk_4719362370750651884,1
+ERROR: Failed to transfer block blk_4269983570263666480 after 3 retries from src 10.12.26.111:50075,1
+10.250.10.144:50010:Got exception while serving blk_5126469776250053435 to /10.250.11.100:,0
+Receiving block blk_-1728983474612515818 src: /10.251.70.211:39459 dest: /10.251.70.211:50010,0
+Receiving block blk_-1657856234642335063 src: /10.251.38.197:44516 dest: /10.251.38.197:50010,0
+PacketResponder 0 for block blk_-1842096107468319932 terminating,0
+Block blk_5618140576290008625 is not found on DataNode 10.196.186.96:50075,1
+Received block blk_3083630442630693250 of size 67108864 from /10.251.215.70,0
+Failed to complete transaction on block blk_8958847096643793243: ReplicaNotFoundException,1
+BLOCK* NameSystem.allocateBlock: /user/root/rand5/_temporary/_task_200811101024_0011_m_001408_0/part-01408. blk_6601059760261449131,0
+Block blk_7080510845125960474 marked as corrupt by DataNode 10.243.218.41:50010 verification scanner,1
+java.io.EOFException while reading block blk_7961243628608611137 from stream,1
+Received block blk_3084588477220583373 of size 67108864 from /10.251.125.174,0
+java.io.IOException: Connection reset by peer while reading block blk_4817273020095978178 from 10.32.128.225:50020,1
+Received block blk_4443043493758564822 of size 67108864 from /10.251.106.37,0
+org.apache.hadoop.ipc.RemoteException: Cannot create block blk_9049565996062164856 on DataNode 10.181.33.35:50010,1
+org.apache.hadoop.hdfs.server.datanode.BlockNotFoundException: blk_2348857694679390474 does not exist in blockMap,1
+Receiving block blk_-5144503768267321004 src: /10.251.107.19:36862 dest: /10.251.107.19:50010,0
+Receiving block blk_3846795603907041885 src: /10.250.10.176:47296 dest: /10.250.10.176:50010,0
+org.apache.hadoop.hdfs.server.datanode.BlockNotFoundException: blk_2387865244751701417 does not exist in blockMap,1
+Received block blk_6746178639682808096 of size 67108864 from /10.251.125.174,0
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.74.192:50010 is added to blk_7439201509602018752 size 67108864,0
+ERROR: Unexpected exception in packet responder for block blk_1754191049897264868: Connection timed out,1
+DataNode 10.17.122.170:50075 unreachable during replication of blk_3460396016594136792,1
+java.net.NoRouteToHostException: No route to host for DataNode 10.133.232.129:50020,1
+Block blk_2793056611037868780 marked as corrupt by DataNode 10.111.10.3:50070 verification scanner,1
+Receiving block blk_-8524274644018377752 src: /10.251.42.16:33011 dest: /10.251.42.16:50010,0
+java.net.NoRouteToHostException: No route to host for DataNode 10.68.55.231:50075,1
+PacketResponder 2 for block blk_-5799866343936729403 terminating,0
+ERROR: Failed to transfer block blk_8086360018436228450 after 3 retries from src 10.32.40.79:50075,1
+FATAL: DataNode failed to replicate block blk_9301466831802192032 to destination 10.86.130.80:50075,1
+DataNode 10.253.191.179:50075 unreachable during replication of blk_7184143782686661723,1
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.105.189:50010 is added to blk_4812792845864526586 size 67108864,0
+org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot delete block blk_6904953899407664251. Name node is in safe mode,1
+Failed to complete transaction on block blk_6399087027051146812: ReplicaNotFoundException,1
+"ERROR: Heartbeat timed out for DataNode 10.202.182.116:50070, marking node as DEAD",1
+java.lang.OutOfMemoryError: unable to create new native thread while serving blk_2751658215669913317,1
+FATAL: DataNode failed to replicate block blk_1851370754554359547 to destination 10.174.183.235:50075,1
+FATAL: DataNode failed to replicate block blk_1623078105103235573 to destination 10.107.163.202:50020,1
+Deleting block blk_-3396836569886642130 file /mnt/hadoop/dfs/data/current/subdir32/blk_-3396836569886642130,0
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.214.18:50010 is added to blk_-7555801584297376435 size 67108864,0
+Deleting block blk_153508158653341141 file /mnt/hadoop/dfs/data/current/subdir50/blk_153508158653341141,0
+BLOCK* NameSystem.delete: blk_-6114220623980201749 is added to invalidSet of 10.250.13.240:50010,0
+Receiving block blk_-6809181994368905854 src: /10.250.17.225:51754 dest: /10.250.17.225:50010,0
+org.apache.hadoop.hdfs.server.datanode.BlockNotFoundException: blk_3595620739753629331 does not exist in blockMap,1
+Deleting block blk_-4380385204018751771 file /mnt/hadoop/dfs/data/current/subdir38/blk_-4380385204018751771,0
+BLOCK* NameSystem.delete: blk_-3362838757940877177 is added to invalidSet of 10.250.5.161:50010,0
+PacketResponder 1 for block blk_1927336911952959118 terminating,0
+Received block blk_1489031087420498797 of size 67108864 from /10.251.71.193,0
+Deleting block blk_-4165176068096983220 file /mnt/hadoop/dfs/data/current/subdir34/blk_-4165176068096983220,0
+Receiving block blk_148513789886825227 src: /10.251.123.33:54308 dest: /10.251.123.33:50010,0
+DiskErrorException: Disk failure detected on /data/hdfs/data1 during write of block blk_8338592096525859757,1
+FATAL: All replicas corrupted for block blk_5993985643645560082,1
+ERROR: Failed to transfer block blk_9684791541434204693 after 3 retries from src 10.158.40.44:50070,1
+java.lang.OutOfMemoryError: unable to create new native thread while serving blk_4484568767404112996,1
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.38.53:50010 is added to blk_3202507081359904616 size 67108864,0
+FATAL: DataNode failed to replicate block blk_9634128660172917059 to destination 10.63.79.117:50020,1
+BLOCK* NameSystem.allocateBlock: /user/root/randtxt2/_temporary/_task_200811101024_0002_m_001335_0/part-01335. blk_-2541428592126088938,0
+FATAL: DataNode failed to replicate block blk_3489841004703079599 to destination 10.215.61.143:50075,1
+Failed to complete transaction on block blk_5366433232431019613: ReplicaNotFoundException,1
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.250.11.194:50010 is added to blk_2430417102497887445 size 67108864,0
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.66.102:50010 is added to blk_-1932467763723526131 size 67108864,0
+"ERROR: Heartbeat timed out for DataNode 10.125.120.175:50070, marking node as DEAD",1
+Receiving block blk_-663653551898848389 src: /10.251.203.149:42756 dest: /10.251.203.149:50010,0
+"ERROR: Heartbeat timed out for DataNode 10.159.76.119:50010, marking node as DEAD",1
+Failed to complete transaction on block blk_6498299680472670763: ReplicaNotFoundException,1
+Block blk_3593007901725942002 is not found on DataNode 10.184.236.182:50070,1
+ChecksumException: Checksum error on block blk_9267071602176970284 at offset 47407055,1
+FATAL: DataNode failed to replicate block blk_4445467245225463804 to destination 10.161.238.244:50010,1
+BLOCK* NameSystem.allocateBlock: /user/root/sortrand2/_temporary/_task_200811101024_0003_r_000344_0/part-00344. blk_-2004529166303428909,0
+BLOCK* NameSystem.delete: blk_-1755309160709170318 is added to invalidSet of 10.251.39.209:50010,0
+Deleting block blk_6147898566868510104 file /mnt/hadoop/dfs/data/current/subdir36/blk_6147898566868510104,0
+ERROR: Failed to transfer block blk_5961512516676053467 after 3 retries from src 10.131.62.218:50020,1
+FATAL: DataNode failed to replicate block blk_7309601691261043975 to destination 10.157.140.36:50070,1
+java.net.NoRouteToHostException: No route to host for DataNode 10.50.46.145:50020,1
+org.apache.hadoop.ipc.RemoteException: Cannot create block blk_4714179072901760374 on DataNode 10.55.153.71:50075,1
+java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel on DataNode 10.97.59.81:50070,1
+10.250.7.230:50010:Got exception while serving blk_-7029628814943626474 to /10.251.38.197:,0
+"ERROR: Heartbeat timed out for DataNode 10.54.213.200:50075, marking node as DEAD",1
+DiskErrorException: Disk failure detected on /data/hdfs/data1 during write of block blk_1547479385896212791,1
+Deleting block blk_6542592144596063478 file /mnt/hadoop/dfs/data/current/subdir35/blk_6542592144596063478,0
+java.io.EOFException while reading block blk_5974272939465667470 from stream,1
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.26.177:50010 is added to blk_6928449948805597176 size 67108864,0
+Received block blk_7830067201550857864 of size 67108864 from /10.251.105.189,0
+java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel on DataNode 10.173.16.93:50075,1
+BLOCK* NameSystem.allocateBlock: /user/root/rand3/_temporary/_task_200811101024_0005_m_001091_0/part-01091. blk_-4468645577339843974,0
+"ERROR: Heartbeat timed out for DataNode 10.174.50.150:50020, marking node as DEAD",1
+java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel on DataNode 10.73.159.40:50020,1
+java.io.EOFException while reading block blk_4188976175256944193 from stream,1
+PacketResponder 1 for block blk_-3967261531426400230 terminating,0
+Receiving block blk_2147212041377545584 src: /10.251.75.49:34485 dest: /10.251.75.49:50010,0
+org.apache.hadoop.ipc.RemoteException: Cannot create block blk_9165018213792680258 on DataNode 10.55.210.101:50020,1
+PacketResponder 2 for block blk_2529569087635823495 terminating,0
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.110.160:50010 is added to blk_-1675768179383804109 size 67108864,0
+Deleting block blk_2489882700357182381 file /mnt/hadoop/dfs/data/current/blk_2489882700357182381,0
+"ERROR: Heartbeat timed out for DataNode 10.85.56.244:50075, marking node as DEAD",1
+java.lang.OutOfMemoryError: unable to create new native thread while serving blk_1448726691565028319,1
+WARN: DataNode 10.185.70.73:50070:Got exception while serving blk_7400324387810917163 to /10.185.70.73:50070,1
+ChecksumException: Checksum error on block blk_1136117155107563376 at offset 11161973,1
+java.lang.OutOfMemoryError: unable to create new native thread while serving blk_3629001549861477763,1
+BLOCK* ask 10.250.17.177:50010 to delete blk_-8570780307468499817 blk_-9122557405432088649 blk_-4393063808227796056 blk_8767569714374844347 blk_7079754042611867581 blk_7608961006114219538 blk_-5017273584996436939 blk_-6537833125980536955 blk_7610838808763810123 blk_3300803097775546532 blk_-5120750586032922592 blk_1577274266662884430 blk_765879159867598347 blk_-9076085976403711202 blk_-3198963348573340497 blk_-4645750029177277209 blk_-5136142986912961316 blk_5677959846373741243 blk_2107477892986152528 blk_-4235116161537008844 blk_6082535783543982566 blk_-4809870147222033236 blk_8818706925296961012 blk_-5203577173046267127 blk_189089569009261656 blk_446299976487589160 blk_-3916247521166632303 blk_-3324962406687427922 blk_-1807424528783081572 blk_-6858401049333055963 blk_6036564204960295926 blk_-8140723044408248078 blk_-3800132731140204959 blk_1716344083117307767 blk_-5194808114606613364 blk_-5473871016976323232 blk_2920934363167004552 blk_8736689095894369097 blk_-7642734632751940776 blk_3408482260833769309 blk_118013751374560901 blk_7963891081239759520 blk_3813114133944383323 blk_3042818489384932576 blk_-4570173726231458270 blk_-1564644006975920581 blk_338095650783321996 blk_3150135312641203550 blk_4285859645577726288 blk_3438772130782939627 blk_2634772258588877972 blk_-6795664812575964130 blk_3923069610304693233 blk_-1782996202120067721 blk_2004418049430157212 blk_1932147224007687756 blk_-582901062969027153 blk_5072240701440032119 blk_-7919006477393039068 blk_-7318022361288598312 blk_-6974693594143537436 blk_-5435767047126325206 blk_-5805500288959332434 blk_-7109885589081848850 blk_2161580591957523893 blk_7240227881194993860 blk_-8298405680648445349 blk_-4253026248821272215 blk_8377661448601579317 blk_8029153852899017155 blk_-8754388319080705916 blk_-7844092300527332901 blk_710178463364063355 blk_-5136849989188547884 blk_8393887138377503163 blk_-6950176077776664217 blk_-6488701068659548195 blk_2537458728254532453 blk_364441107933628577 blk_6207861897580168557 blk_8814943807366894581 blk_-4150682644311695471 blk_9174833667156726933 blk_649427218152856001 blk_-7403541028238011236 blk_-334982586592048773 blk_61908781908925992 blk_6385574357371832424 blk_-66376131060945541 blk_1372596948297458670 blk_-3389135155401857220 blk_-6035411221441929663 blk_-5127580069634421247 blk_-5685246533892022418 blk_4977937528993040451 blk_5680538862600094527 blk_-8378747462487962732 blk_425101290285860876 blk_6306622708327890839 blk_-1067866602168873257,0
+org.apache.hadoop.hdfs.server.datanode.BlockNotFoundException: blk_7246888826456600128 does not exist in blockMap,1
+DataNode 10.181.221.126:50070 unreachable during replication of blk_3419782925788391201,1
+FATAL: DataNode failed to replicate block blk_2231447879909095118 to destination 10.173.210.101:50010,1
+java.io.IOException: Connection reset by peer while reading block blk_6968208068112382839 from 10.33.94.137:50070,1
+10.251.195.52:50010 Served block blk_6655622109568310643 to /10.251.195.52,0
+Receiving block blk_6398122733993275620 src: /10.251.111.80:53737 dest: /10.251.111.80:50010,0
+FATAL: All replicas corrupted for block blk_1760195219463963395,1
+java.net.NoRouteToHostException: No route to host for DataNode 10.69.209.235:50070,1
+Deleting block blk_-5934436507161953485 file /mnt/hadoop/dfs/data/current/subdir33/blk_-5934436507161953485,0
+ChecksumException: Checksum error on block blk_9701924514140021536 at offset 64862295,1
+Deleting block blk_-8617088607862430908 file /mnt/hadoop/dfs/data/current/subdir53/blk_-8617088607862430908,0
+Deleting block blk_-8383503596684323017 file /mnt/hadoop/dfs/data/current/subdir26/blk_-8383503596684323017,0
+BLOCK* NameSystem.delete: blk_-7111788899695387329 is added to invalidSet of 10.251.75.228:50010,0
+10.251.202.134:50010:Got exception while serving blk_3441699978641526775 to /10.251.126.5:,0
+java.io.IOException: Connection reset by peer while reading block blk_8234420140136911595 from 10.85.53.193:50010,1
+PacketResponder 0 for block blk_-7024895786822269814 terminating,0
+Block blk_3811457669389997400 is not found on DataNode 10.53.253.90:50075,1
+Failed to complete transaction on block blk_3562910770574305398: ReplicaNotFoundException,1
+Received block blk_-5309211894896608429 of size 67108864 from /10.251.202.181,0
+10.251.71.146:50010:Got exception while serving blk_-2032740670708110312 to /10.251.197.161:,0
+PacketResponder 1 for block blk_-7269672042149855641 terminating,0
+Deleting block blk_6051144263842600010 file /mnt/hadoop/dfs/data/current/subdir42/blk_6051144263842600010,0
+Failed to complete transaction on block blk_6781554362070578679: ReplicaNotFoundException,1
+Receiving block blk_-2667669005094349452 src: /10.251.203.149:41751 dest: /10.251.203.149:50010,0
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.65.203:50010 is added to blk_-1332315107905285608 size 67108864,0
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.39.144:50010 is added to blk_1526403491950199810 size 3534443,0
+DiskErrorException: Disk failure detected on /data/hdfs/data1 during write of block blk_9159479232754671669,1
+org.apache.hadoop.hdfs.server.datanode.BlockNotFoundException: blk_7045671169315178162 does not exist in blockMap,1
+ChecksumException: Checksum error on block blk_7834993651070915373 at offset 2475842,1
+PacketResponder 1 for block blk_-8638442557570632582 terminating,0
+Receiving block blk_-8649503431827393598 src: /10.251.199.19:48778 dest: /10.251.199.19:50010,0
+java.io.EOFException while reading block blk_6281028573968531783 from stream,1
+org.apache.hadoop.ipc.RemoteException: Cannot create block blk_2654417538740308308 on DataNode 10.135.233.177:50020,1
+Block blk_2842098998218290306 marked as corrupt by DataNode 10.155.91.96:50010 verification scanner,1
+BLOCK* NameSystem.delete: blk_4713968111267226537 is added to invalidSet of 10.251.70.5:50010,0
+ERROR: Unexpected exception in packet responder for block blk_9621623120784380827: Connection timed out,1
+org.apache.hadoop.ipc.RemoteException: Cannot create block blk_4131457330117152950 on DataNode 10.66.86.200:50020,1
+PacketResponder 1 for block blk_3318864983801406136 terminating,0
+PacketResponder 1 for block blk_8320088109701056055 terminating,0
+Deleting block blk_-1939956833921604216 file /mnt/hadoop/dfs/data/current/subdir34/blk_-1939956833921604216,0
+Deleting block blk_-626413149556394155 file /mnt/hadoop/dfs/data/current/subdir26/blk_-626413149556394155,0
+Received block blk_892900079071425422 of size 67108864 from /10.251.73.188,0
+java.lang.OutOfMemoryError: unable to create new native thread while serving blk_7880390557652533605,1
+ERROR: Failed to transfer block blk_5139852217493793901 after 3 retries from src 10.152.143.132:50075,1
+Received block blk_-577659324269246113 of size 67108864 from /10.251.203.179,0
+java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel on DataNode 10.139.118.248:50020,1
+DiskErrorException: Disk failure detected on /data/hdfs/data1 during write of block blk_4027682109776059856,1
+BLOCK* NameSystem.delete: blk_-5145886774827574591 is added to invalidSet of 10.251.105.189:50010,0
+Block blk_8421430193989803664 is not found on DataNode 10.129.231.74:50020,1
+ERROR: Failed to transfer block blk_6277497655273688161 after 3 retries from src 10.120.62.143:50075,1
+Receiving block blk_-8255732027871411321 src: /10.251.39.179:33950 dest: /10.251.39.179:50010,0
+java.io.EOFException while reading block blk_4861453523788524816 from stream,1
+ERROR: Unexpected exception in packet responder for block blk_2664044581712918998: Connection timed out,1
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.66.3:50010 is added to blk_1756478622414930264 size 67108864,0
+FATAL: DataNode failed to replicate block blk_2180076394408122493 to destination 10.199.67.186:50020,1
+Block blk_6546113946011098579 marked as corrupt by DataNode 10.101.100.46:50010 verification scanner,1
+Received block blk_6446927133528675675 of size 67108864 from /10.251.39.209,0
+Block blk_8015896217506407408 marked as corrupt by DataNode 10.104.132.144:50010 verification scanner,1
+10.251.106.10:50010 Served block blk_2273334621242106674 to /10.251.106.10,0
+BLOCK* NameSystem.delete: blk_7841365850685201915 is added to invalidSet of 10.251.110.68:50010,0
+org.apache.hadoop.ipc.RemoteException: Cannot create block blk_7713064470068303392 on DataNode 10.143.153.135:50070,1
+BLOCK* NameSystem.delete: blk_5668137923110942035 is added to invalidSet of 10.251.91.229:50010,0
+Received block blk_-5785220384376578831 of size 67108864 from /10.251.203.80,0
+ERROR: Unexpected exception in packet responder for block blk_4809658724599999955: Connection timed out,1
+10.251.66.102:50010:Got exception while serving blk_6106884317961925960 to /10.251.66.102:,0
+java.io.EOFException while reading block blk_5019877386347550390 from stream,1
+DiskErrorException: Disk failure detected on /data/hdfs/data1 during write of block blk_1420461672174743631,1
+Receiving block blk_1869228153483717375 src: /10.251.203.4:56599 dest: /10.251.203.4:50010,0
+Block blk_3068919955520472622 is not found on DataNode 10.16.59.110:50075,1
+Deleting block blk_-7353572928777348242 file /mnt/hadoop/dfs/data/current/subdir22/blk_-7353572928777348242,0
+Receiving block blk_2583125615128303019 src: /10.251.71.97:54431 dest: /10.251.71.97:50010,0
+Block blk_2266006325589749272 marked as corrupt by DataNode 10.32.187.98:50020 verification scanner,1
+java.io.IOException: Connection reset by peer while reading block blk_5237446567370404816 from 10.147.32.250:50075,1
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.75.143:50010 is added to blk_2618566506268332756 size 67108864,0
+Receiving block blk_-7646004878694144580 src: /10.251.202.181:47130 dest: /10.251.202.181:50010,0
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.73.220:50010 is added to blk_3073404534069578592 size 67108864,0
+PacketResponder 1 for block blk_-7200400342436668240 terminating,0
+Failed to complete transaction on block blk_6720434028692349101: ReplicaNotFoundException,1
+Receiving block blk_7580930377559819562 src: /10.251.110.68:54793 dest: /10.251.110.68:50010,0
+DiskErrorException: Disk failure detected on /data/hdfs/data1 during write of block blk_5387789169996915157,1
+ChecksumException: Checksum error on block blk_2530798314384517041 at offset 39943674,1
+java.io.EOFException while reading block blk_6135855012225574318 from stream,1
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.215.192:50010 is added to blk_-4619809198345103330 size 67108864,0
+DataNode 10.104.213.74:50010 unreachable during replication of blk_1524718126103830774,1
+Deleting block blk_-6008397446568765070 file /mnt/hadoop/dfs/data/current/blk_-6008397446568765070,0
+ChecksumException: Checksum error on block blk_9177910973304310484 at offset 50497910,1
+PacketResponder 0 for block blk_-730776401372551814 terminating,0
+WARN: DataNode 10.38.215.232:50075:Got exception while serving blk_1579293749054891509 to /10.38.215.232:50075,1
+java.lang.OutOfMemoryError: unable to create new native thread while serving blk_4770399966665402921,1
+FATAL: DataNode failed to replicate block blk_8190030763525147383 to destination 10.35.202.74:50070,1
+BLOCK* NameSystem.delete: blk_-945770324989341170 is added to invalidSet of 10.251.31.180:50010,0
+PacketResponder 2 for block blk_2953550760670423417 terminating,0
+BLOCK* NameSystem.delete: blk_-1162676743264290624 is added to invalidSet of 10.251.194.213:50010,0
+java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel on DataNode 10.157.110.147:50075,1
+BLOCK* NameSystem.delete: blk_-9056276727170871967 is added to invalidSet of 10.251.66.3:50010,0
+FATAL: All replicas corrupted for block blk_6533957431004982902,1
+PacketResponder 0 for block blk_3695169334833427187 terminating,0
+BLOCK* NameSystem.allocateBlock: /user/root/rand/_temporary/_task_200811101024_0001_m_000749_0/part-00749. blk_-6909607053783233975,0
+ERROR: Failed to transfer block blk_2268775879073371783 after 3 retries from src 10.123.179.124:50070,1
+Deleting block blk_-7832937837605180330 file /mnt/hadoop/dfs/data/current/subdir49/blk_-7832937837605180330,0
+BLOCK* NameSystem.delete: blk_2149728827322918746 is added to invalidSet of 10.250.11.194:50010,0
+java.lang.OutOfMemoryError: unable to create new native thread while serving blk_7048323069691379582,1
+10.251.39.179:50010:Got exception while serving blk_1683075246463470765 to /10.250.14.38:,0
+Verification succeeded for blk_1150231966878829887,0
+DiskErrorException: Disk failure detected on /data/hdfs/data1 during write of block blk_3597547853662713175,1
+PacketResponder 2 for block blk_-4779205255695723216 terminating,0
+ERROR: Unexpected exception in packet responder for block blk_5753442155450442215: Connection timed out,1
+10.251.39.192:50010 Served block blk_-5341992729755584578 to /10.251.39.192,0
+PacketResponder 0 for block blk_-2268477281422551537 terminating,0
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.71.193:50010 is added to blk_7415823309220171667 size 67108864,0
+PacketResponder 0 for block blk_391813102554451063 terminating,0
+WARN: DataNode 10.121.123.75:50070:Got exception while serving blk_1074053438442852507 to /10.121.123.75:50070,1
+Deleting block blk_1838564958520120941 file /mnt/hadoop/dfs/data/current/subdir39/blk_1838564958520120941,0
+Deleting block blk_-2098161025946048013 file /mnt/hadoop/dfs/data/current/subdir17/blk_-2098161025946048013,0
+BLOCK* NameSystem.delete: blk_-7595375726951801956 is added to invalidSet of 10.251.122.79:50010,0
+java.io.EOFException while reading block blk_4926567925389802778 from stream,1
+BLOCK* NameSystem.delete: blk_-6477590833521072407 is added to invalidSet of 10.251.39.179:50010,0
+Verification succeeded for blk_-7803343374223161433,0
+10.251.214.130:50010:Got exception while serving blk_424461424221613461 to /10.251.71.193:,0
+DiskErrorException: Disk failure detected on /data/hdfs/data1 during write of block blk_4305708939571194345,1
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.38.197:50010 is added to blk_8763662564934652249 size 67108864,0
+java.io.EOFException while reading block blk_1657099519935688013 from stream,1
+DataNode 10.123.74.42:50075 unreachable during replication of blk_8412690397323159272,1
+FATAL: DataNode failed to replicate block blk_3073501167922999477 to destination 10.175.39.233:50070,1
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.250.7.146:50010 is added to blk_9163807899833139121 size 67108864,0
+Failed to complete transaction on block blk_5184862550166144714: ReplicaNotFoundException,1
+FATAL: DataNode failed to replicate block blk_2140150850198744083 to destination 10.129.29.134:50020,1
+Block blk_9223941659071320213 marked as corrupt by DataNode 10.254.214.108:50020 verification scanner,1
+FATAL: All replicas corrupted for block blk_1903778279147545142,1
+org.apache.hadoop.hdfs.server.datanode.BlockNotFoundException: blk_7350587629294748875 does not exist in blockMap,1
+ERROR: Failed to transfer block blk_4910182908965381208 after 3 retries from src 10.63.108.180:50070,1
+Block blk_4620579406482683253 marked as corrupt by DataNode 10.160.30.90:50070 verification scanner,1
+"ERROR: Heartbeat timed out for DataNode 10.194.7.168:50075, marking node as DEAD",1
+DataNode 10.216.9.171:50070 unreachable during replication of blk_6360933543434013945,1
+java.io.IOException: Connection reset by peer while reading block blk_5054645073100928473 from 10.116.124.119:50020,1
+ChecksumException: Checksum error on block blk_8239397568921765109 at offset 34046347,1
+10.251.125.193:50010:Got exception while serving blk_3790492230047189408 to /10.251.199.159:,0
+org.apache.hadoop.ipc.RemoteException: Cannot create block blk_3612296469694076229 on DataNode 10.106.144.156:50075,1
+Failed to complete transaction on block blk_4337275164104346930: ReplicaNotFoundException,1
+BLOCK* NameSystem.delete: blk_-8887373200836701910 is added to invalidSet of 10.251.193.224:50010,0
+PacketResponder 1 for block blk_-5263787695149681326 terminating,0
+PacketResponder 0 for block blk_6809155287484296510 terminating,0
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.73.220:50010 is added to blk_3506875694435075421 size 67108864,0
+java.net.SocketTimeoutException: 60000 millis timeout while waiting for channel on DataNode 10.110.50.126:50070,1
+PacketResponder 0 for block blk_-41928108292416895 terminating,0
+Receiving block blk_392347292517057138 src: /10.251.31.160:58721 dest: /10.251.31.160:50010,0
+Block blk_4264283125117698722 is not found on DataNode 10.151.24.153:50070,1
+org.apache.hadoop.hdfs.server.datanode.BlockNotFoundException: blk_3230028872065571180 does not exist in blockMap,1
+WARN: DataNode 10.218.91.69:50075:Got exception while serving blk_3328146879722148310 to /10.218.91.69:50075,1
+java.io.IOException: Connection reset by peer while reading block blk_5438069217184855168 from 10.156.80.145:50075,1
+BLOCK* NameSystem.delete: blk_3637945019239882309 is added to invalidSet of 10.251.198.196:50010,0
+FATAL: DataNode failed to replicate block blk_6266657789490834233 to destination 10.174.215.100:50075,1
+10.251.74.79:50010:Got exception while serving blk_2139707931694085102 to /10.251.111.228:,0
+ChecksumException: Checksum error on block blk_7118863573539160204 at offset 911090,1
+Deleting block blk_2731746367139956284 file /mnt/hadoop/dfs/data/current/subdir15/blk_2731746367139956284,0
+org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot delete block blk_4059706006996831013. Name node is in safe mode,1
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.250.19.227:50010 is added to blk_2059389709317340334 size 67108864,0
+10.251.122.65:50010 Served block blk_2866275036574950116 to /10.250.11.53,0
+Receiving block blk_-1133573997287815203 src: /10.251.123.195:59430 dest: /10.251.123.195:50010,0
+PacketResponder 2 for block blk_-6766351519628312408 terminating,0
+Receiving block blk_-5646228903161999640 src: /10.251.71.97:60870 dest: /10.251.71.97:50010,0
+Received block blk_120277101968534224 of size 67108864 from /10.251.122.65,0
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.67.4:50010 is added to blk_9093176996492793041 size 67108864,0
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.250.6.223:50010 is added to blk_-4052810234606327693 size 67108864,0
+Block blk_3402501388957934088 marked as corrupt by DataNode 10.178.14.71:50010 verification scanner,1
+Block blk_2654791521256959638 is not found on DataNode 10.247.23.181:50070,1
+Block blk_7802350539708882833 marked as corrupt by DataNode 10.73.27.84:50020 verification scanner,1
+PacketResponder 0 for block blk_-9198375937828232046 terminating,0
+FATAL: DataNode failed to replicate block blk_1541894479940390113 to destination 10.23.86.239:50020,1
+BLOCK* NameSystem.allocateBlock: /user/root/randtxt4/_temporary/_task_200811101024_0010_m_000881_0/part-00881. blk_-3091906986951252347,0
+Receiving block blk_-8323785930877970805 src: /10.250.13.240:40589 dest: /10.250.13.240:50010,0
+Received block blk_-3023983271692989109 of size 67108864 from /10.251.110.68,0
+WARN: DataNode 10.169.3.117:50075:Got exception while serving blk_7084880201137255162 to /10.169.3.117:50075,1
+Receiving block blk_-6250368566161066085 src: /10.251.31.180:42992 dest: /10.251.31.180:50010,0
+Received block blk_-3702595599317472079 of size 67108864 from /10.251.25.237,0
+"ERROR: Heartbeat timed out for DataNode 10.154.53.18:50020, marking node as DEAD",1
+PacketResponder 0 for block blk_4068667188725811395 terminating,0
+PacketResponder 0 for block blk_2241654010576170013 terminating,0
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.31.160:50010 is added to blk_3079488924320077240 size 67108864,0
+10.251.107.227:50010:Got exception while serving blk_-6290631608800952376 to /10.251.109.209:,0
+ERROR: Failed to transfer block blk_7336986536837908428 after 3 retries from src 10.226.228.184:50070,1
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.215.192:50010 is added to blk_2015610615789582788 size 67108864,0
+Deleting block blk_1920931690498309324 file /mnt/hadoop/dfs/data/current/subdir42/blk_1920931690498309324,0
+FATAL: All replicas corrupted for block blk_3842379479933059129,1
+Deleting block blk_8492196963764530259 file /mnt/hadoop/dfs/data/current/subdir45/blk_8492196963764530259,0
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.123.1:50010 is added to blk_6308888821787547357 size 67108864,0
+Received block blk_-2129171714384027465 of size 67108864 from /10.251.75.228,0
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.107.242:50010 is added to blk_621685330749869453 size 67108864,0
+Deleting block blk_70980361971054326 file /mnt/hadoop/dfs/data/current/subdir27/blk_70980361971054326,0
+java.io.IOException: Connection reset by peer while reading block blk_5781759427005212882 from 10.102.160.194:50075,1
+FATAL: DataNode failed to replicate block blk_1995013552864128191 to destination 10.212.6.33:50020,1
+FATAL: All replicas corrupted for block blk_7136683146389011359,1
+FATAL: DataNode failed to replicate block blk_5072872359200080397 to destination 10.193.67.27:50010,1
+Failed to complete transaction on block blk_9068830025498037887: ReplicaNotFoundException,1
+org.apache.hadoop.hdfs.server.datanode.BlockNotFoundException: blk_5120037772247324028 does not exist in blockMap,1
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.75.79:50010 is added to blk_467589865104023338 size 67108864,0
+Deleting block blk_4365203784873840210 file /mnt/hadoop/dfs/data/current/subdir1/blk_4365203784873840210,0
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.202.209:50010 is added to blk_-6224982681533811277 size 67108864,0
+ChecksumException: Checksum error on block blk_1001565359023963411 at offset 59735355,1
+Received block blk_-5777981614298940026 of size 67108864 from /10.251.214.67,0
+ERROR: Failed to transfer block blk_5210636645830499770 after 3 retries from src 10.10.254.246:50075,1
+DataNode 10.33.232.217:50070 unreachable during replication of blk_2187892373052338838,1
+Receiving block blk_-7238035741206373733 src: /10.251.202.209:59561 dest: /10.251.202.209:50010,0
+java.lang.OutOfMemoryError: unable to create new native thread while serving blk_2685888962505352849,1
+10.250.17.225:50010:Got exception while serving blk_-5935642747315643391 to /10.251.199.150:,0
+ERROR: Unexpected exception in packet responder for block blk_2226444652842852169: Connection timed out,1
+Deleting block blk_-9038475355621289969 file /mnt/hadoop/dfs/data/current/subdir41/blk_-9038475355621289969,0
+FATAL: DataNode failed to replicate block blk_5214162556326817701 to destination 10.221.225.11:50020,1
+Received block blk_1498192967843651378 of size 67108864 from /10.251.42.84,0
+java.lang.OutOfMemoryError: unable to create new native thread while serving blk_8425476637156225937,1
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.26.8:50010 is added to blk_-5963475042722370536 size 67108864,0
+java.lang.OutOfMemoryError: unable to create new native thread while serving blk_6344649777328377606,1
+"ERROR: Heartbeat timed out for DataNode 10.181.25.48:50020, marking node as DEAD",1
+ERROR: Unexpected exception in packet responder for block blk_1709988175469746166: Connection timed out,1
+Failed to complete transaction on block blk_5571294967247157941: ReplicaNotFoundException,1
+DataNode 10.134.118.127:50010 unreachable during replication of blk_6172969918425132812,1
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.67.113:50010 is added to blk_9060964400089016309 size 67108864,0
+BLOCK* NameSystem.delete: blk_-7873581794069372986 is added to invalidSet of 10.251.194.147:50010,0
+Receiving block blk_6672666770563118759 src: /10.251.71.68:44457 dest: /10.251.71.68:50010,0
+java.lang.OutOfMemoryError: unable to create new native thread while serving blk_9364498869932906592,1
+PacketResponder 2 for block blk_7345322407792942877 terminating,0
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.127.191:50010 is added to blk_1589878256898761558 size 67108864,0
+FATAL: DataNode failed to replicate block blk_8230106884593503508 to destination 10.224.118.5:50010,1
+Received block blk_4989329877491629543 of size 67108864 from /10.250.15.67,0
+Receiving block blk_9034824096129858680 src: /10.250.6.223:45371 dest: /10.250.6.223:50010,0
+Deleting block blk_-8949548167466276130 file /mnt/hadoop/dfs/data/current/subdir2/blk_-8949548167466276130,0
+java.lang.OutOfMemoryError: unable to create new native thread while serving blk_7119968761604882826,1
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.198.33:50010 is added to blk_-5159573936338473350 size 67108864,0
+BLOCK* ask 10.250.10.213:50010 to delete blk_4029139044660806713 blk_-5471189807977280544 blk_6708643067868168687 blk_-500678958150296008 blk_-8597840983621849778 blk_-3610057702150392748 blk_-1709606535283888232 blk_-4154362211643572668 blk_-8892080524136798472 blk_5356427838869009345 blk_-6987238639050161133 blk_-5215128860160823363 blk_7186692462976470823 blk_-6538449588297475521 blk_-2165930080589343952 blk_-5524899010031625427 blk_6384439316405471171 blk_-2965258329365213675 blk_118950937507976810 blk_-1717088081766373300 blk_-3911466865418055820 blk_1237334407720045724 blk_-760015977981369567 blk_-6802007379650646616 blk_-7667535133893574689 blk_6865645438678864855 blk_4633996820313194570 blk_7225301266481603731 blk_-4930257130609958866 blk_-4124845864570823487 blk_4927011145115127531 blk_7234346856930822716 blk_7159969052744592746 blk_1296823600557793869 blk_2209319141644287774 blk_-622218131799806364 blk_-8154516246083521409 blk_4466433199471909449 blk_8406894133999850666 blk_991075908349619367 blk_-2081474832657208733 blk_-5573393775847919985 blk_2004177185950968695 blk_4041319486058127641 blk_6449230045010995668 blk_5978265573904271474 blk_-4813738732036414715 blk_4389340532803855247 blk_-857151863616763327 blk_-7200136644339435027 blk_-1454962873426270839 blk_-5012294311590635938 blk_7112727670634942639 blk_3335012758760643328 blk_3382627815322561484 blk_825124020036421636 blk_-8040559034239258688 blk_-5415591001139074826 blk_-1052513063506891954 blk_-1155882018729560343 blk_-5679835604685169040 blk_-4498808851217768984 blk_8345415947062862337 blk_8521655806854586696 blk_7602939593939794410 blk_-4833650023923869528 blk_7237730029042141635 blk_2860897425785746911 blk_-1937193099911148343 blk_5740615689780260922 blk_963252337613423037 blk_5537011318013544619 blk_2626057344048606017 blk_8296499240199635880 blk_7211071078501521087 blk_8823112510768971040 blk_-3366974935992288326 blk_-2947778702643296262 blk_7693891282153136044 blk_4644812717442758529 blk_-5724970555730638200 blk_-3039294462945223064 blk_-1729755380346651221 blk_-6448673813272428418 blk_-7724282460846954976 blk_2698691234887375588 blk_-4043525878322523713 blk_-5195120009388265 blk_8879208244602324204 blk_-5784376901556131897 blk_-5201149273969117873 blk_5253889604362640423 blk_7067050654303940677 blk_8992626816092659826 blk_-488462739843441981 blk_8543991617360374935 blk_1943146154560599630 blk_-9194660123773136535 blk_3351984198891394382 blk_-6759123807563555545,0
+Received block blk_4098532420907418423 of size 67108864 from /10.251.43.147,0
+Deleting block blk_9169945668827621796 file /mnt/hadoop/dfs/data/current/subdir50/blk_9169945668827621796,0
+BLOCK* NameSystem.delete: blk_8442157310069672329 is added to invalidSet of 10.251.39.64:50010,0
+BLOCK* NameSystem.delete: blk_-7767902948513849386 is added to invalidSet of 10.251.71.146:50010,0
+Block blk_3118277122304229371 marked as corrupt by DataNode 10.73.118.89:50020 verification scanner,1
+java.io.EOFException while reading block blk_5080445623257449307 from stream,1
+10.251.71.97:50010 Served block blk_5454332143498402824 to /10.250.15.67,0
+ERROR: Failed to transfer block blk_1311381078331029893 after 3 retries from src 10.255.131.65:50075,1
+java.lang.OutOfMemoryError: unable to create new native thread while serving blk_5766799096902334732,1
+Receiving block blk_-5224756755359850354 src: /10.251.43.192:38028 dest: /10.251.43.192:50010,0
+Verification succeeded for blk_3894335463008345041,0
+DiskErrorException: Disk failure detected on /data/hdfs/data1 during write of block blk_7838901683960592108,1
+PacketResponder 2 for block blk_-633826175832239328 terminating,0
+java.net.NoRouteToHostException: No route to host for DataNode 10.116.105.39:50070,1
+ERROR: Unexpected exception in packet responder for block blk_1996443286614451373: Connection timed out,1
+Receiving block blk_5256716488526744434 src: /10.251.73.220:42064 dest: /10.251.73.220:50010,0
+Received block blk_-8015797075596093783 of size 67108864 from /10.250.11.194,0
+java.io.EOFException while reading block blk_7068625559299453302 from stream,1
+ChecksumException: Checksum error on block blk_6099160954593988849 at offset 31116131,1
+Received block blk_-7380871572601322244 of size 67108864 from /10.251.121.224,0
+BLOCK* NameSystem.delete: blk_-6068451475575444798 is added to invalidSet of 10.251.43.210:50010,0
+PacketResponder 1 for block blk_-2680500627064966252 terminating,0
+Received block blk_-3677956642639780952 of size 67108864 from /10.251.123.20,0
+java.lang.OutOfMemoryError: unable to create new native thread while serving blk_3200468646966809639,1
+FATAL: DataNode failed to replicate block blk_6321274601951862578 to destination 10.210.101.216:50070,1
+DataNode 10.157.130.24:50020 unreachable during replication of blk_6489125592303018660,1
+Verification succeeded for blk_-4984504651603069357,0
+org.apache.hadoop.ipc.RemoteException: Cannot create block blk_4240678196408791287 on DataNode 10.88.251.115:50010,1
+org.apache.hadoop.ipc.RemoteException: Cannot create block blk_4636982256705171155 on DataNode 10.47.34.87:50010,1
+Failed to complete transaction on block blk_8706233724143842600: ReplicaNotFoundException,1
+java.io.IOException: Connection reset by peer while reading block blk_8982200318468559540 from 10.208.46.220:50075,1
+java.net.NoRouteToHostException: No route to host for DataNode 10.92.183.96:50075,1
+DataNode 10.20.187.223:50070 unreachable during replication of blk_5124043224220105660,1
+BLOCK* NameSystem.delete: blk_5689009809369418749 is added to invalidSet of 10.251.91.84:50010,0
+ERROR: Failed to transfer block blk_4833971362339514221 after 3 retries from src 10.141.28.209:50070,1
+Received block blk_-5960135894031733009 of size 67108864 from /10.251.126.83,0
+DataNode 10.166.41.94:50070 unreachable during replication of blk_5821499584019258205,1
+DiskErrorException: Disk failure detected on /data/hdfs/data1 during write of block blk_8247058444246093935,1
+PacketResponder 1 for block blk_-5073870177832699716 terminating,0
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.42.207:50010 is added to blk_-6314365697827006048 size 67108864,0
+ChecksumException: Checksum error on block blk_1109305953082243840 at offset 35953799,1
+Failed to complete transaction on block blk_5844707777274366267: ReplicaNotFoundException,1
+java.io.IOException: Connection reset by peer while reading block blk_1095886428328763029 from 10.45.27.255:50070,1
+PacketResponder 2 for block blk_8418106412701718933 terminating,0
+java.io.EOFException while reading block blk_4559166252732708394 from stream,1
+PacketResponder 0 for block blk_-1250775350296476256 terminating,0
+Failed to complete transaction on block blk_5151368528374886762: ReplicaNotFoundException,1
+DiskErrorException: Disk failure detected on /data/hdfs/data1 during write of block blk_3007936339306416978,1
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.110.8:50010 is added to blk_8015913224713045110 size 67108864,0
+Failed to complete transaction on block blk_2370300914702747378: ReplicaNotFoundException,1
+Received block blk_-2935178173527646581 of size 67108864 from /10.251.65.237,0
+FATAL: DataNode failed to replicate block blk_1553409684970158983 to destination 10.235.165.9:50020,1
+Deleting block blk_-4352313989800650828 file /mnt/hadoop/dfs/data/current/subdir56/blk_-4352313989800650828,0
+Received block blk_-7207514537719465756 of size 67108864 from /10.251.75.143,0
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.127.243:50010 is added to blk_1512923509505250283 size 67108864,0
+Deleting block blk_-6177194341369822651 file /mnt/hadoop/dfs/data/current/subdir38/blk_-6177194341369822651,0
+java.lang.OutOfMemoryError: unable to create new native thread while serving blk_7256377452048236772,1
+BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.250.6.214:50010 is added to blk_5963655886023015963 size 67108864,0
+FATAL: DataNode failed to replicate block blk_2973943518394743198 to destination 10.245.130.218:50075,1
+PacketResponder 0 for block blk_2096199637324483321 terminating,0
+PacketResponder 1 for block blk_-4853183643928986291 terminating,0
+Receiving block blk_5983149244832683042 src: /10.251.42.191:52748 dest: /10.251.42.191:50010,0

@@ -1,0 +1,17 @@
+venv/
+__pycache__/
+*.pyc
+*.pth
+*.pt
+*.bin
+*.log
+
+.idea/
+.vscode/
+
+checkpoints/*
+!checkpoints/model/
+data/raw/
+
+.env
+.cache/
