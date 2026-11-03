@@ -28,9 +28,7 @@ Classify distributed system log lines as Normal or Anomaly in real time, using a
 
 **Task :** Binary sequence classification. A single log event is the input; a label of 0 (Normal) or 1 (Anomaly) is the output.
 
-`	ext
 
-`	ext
 
 ---
 
@@ -39,7 +37,6 @@ Classify distributed system log lines as Normal or Anomaly in real time, using a
 1. Load the HDFS_v1 dataset (`Event_traces.csv` + `anomaly_label.csv`) and merge on `BlockId` via `dataset_builder.py`
 2. Convert labels (`Normal -> 0`, `Anomaly -> 1`) and perform a stratified 80 / 10 / 10 split into `train.csv`, `val.csv`, `test.csv`
 3. Apply contextual masking to remove ephemeral identifiers (IP addresses, block IDs, timestamps) from log text.
-`	ext
 4. EDA: word count distribution, class distribution
 5. Tokenize the `Features` column using WordPiece (DistilBERT tokenizer, max length 128)
 6. Load frozen DistilBERT backbone, inject PEFT LoRA adapters into the `q_lin` and `v_lin` projection layers
@@ -77,7 +74,6 @@ BlockId mapped to a Normal / Anomaly label.
 
 Log events are very short; word counts cluster between 5 and 15 words. This is characteristic of structured machine logs: they follow templated formats with variable fields (block IDs, IP addresses, operation names). The tight length distribution means padding overhead is minimal and `max_length = 128` tokens is more than sufficient for all logs.
 
-`	ext
 
 ---
 
@@ -95,13 +91,10 @@ The dataset builder pipeline runs as follows :
 
 **Step 5 :** Keep only the relevant columns : `BlockId`, `Features`, `TimeInterval`, `Latency`, `Label`, `Type`
 
-`	ext
 
-`	ext
 
 Raw log events inside the `Features` column contain ephemeral identifiers; block IDs like `blk_-1608999687919862906`, IP addresses like `10.250.19.102:50010`, and timestamps. These values are unique per log event; they carry no semantic information about whether the event is normal or anomalous.
 
-`	ext
 
 This is the log preprocessing principle: strip the noise, preserve the signal.
 
@@ -120,7 +113,6 @@ The component tokens `Null`, `Pointer`, `Exception`, `Failed` all carry semantic
 
 ### CLS Token Pooling : 
 
-`	ext
 
 ### Stratified Split : 
 
@@ -207,9 +199,7 @@ Where :
 
 Parameter count comparison:
 
-`	ext
 
-`	ext
 
 A 98% reduction in parameters for this matrix alone.
 
@@ -277,7 +267,6 @@ Dataset Builder (merge on BlockId, label conversion, column selection)
     |
 Train / Val / Test (stratified 80/10/10 split)
     |
-`	ext
     |
 Tokenizer (WordPiece, max_length=128, [CLS] prepended)
     |
@@ -424,7 +413,6 @@ Each checkpoint in `checkpoints/` bundles the PEFT adapter weights and the token
 
 `predictor.py` loads three pieces at startup: the tokenizer, the PEFT adapter, and the base DistilBERT model, then merges them into a single callable classifier.
 
-`	ext
 
 **Batch prediction :** a list (or uploaded CSV) of log events is tokenized and run through the model together, which amortizes the fixed overhead per call and is the recommended path for anything beyond a handful of log lines.
 
@@ -500,7 +488,6 @@ The fine-tuned model checkpoint (`checkpoints/model`) was evaluated on the indep
 
 ### Detailed Classification Report :
 
-```text
               precision    recall  f1-score   support
 
   Normal (0)     1.0000    1.0000    1.0000       200
