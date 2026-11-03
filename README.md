@@ -38,6 +38,7 @@ Classify distributed system log lines as Normal or Anomaly in real time, using a
 
 1. Load the HDFS_v1 dataset (`Event_traces.csv` + `anomaly_label.csv`) and merge on `BlockId` via `dataset_builder.py`
 2. Convert labels (`Normal -> 0`, `Anomaly -> 1`) and perform a stratified 80 / 10 / 10 split into `train.csv`, `val.csv`, `test.csv`
+3. Apply contextual masking to remove ephemeral identifiers (IP addresses, block IDs, timestamps) from log text.
 `	ext
 4. EDA: word count distribution, class distribution
 5. Tokenize the `Features` column using WordPiece (DistilBERT tokenizer, max length 128)
