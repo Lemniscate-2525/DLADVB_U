@@ -1,4 +1,3 @@
-
 # Distributed System Anomaly Detection via LoRA Fine-Tuned DistilBERT : 
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
@@ -19,7 +18,9 @@ Classify distributed system log lines as Normal or Anomaly in real time, using a
 
 **Task :** Binary sequence classification. A single log event is the input; a label of 0 (Normal) or 1 (Anomaly) is the output.
 
+**Significance of Language Model for Logs :** Traditional log monitoring uses regex rules and keyword matching. These approaches break the moment log format changes, a new error code appears, or a novel failure mode occurs. A language model that has been *pre-trained on billions of text tokens* has learned semantic relationships between words; it understands that "block not found on DataNode" is semantically related to failure states even if that exact string was never in a rule.
 
+DistilBERT is fine-tuned on labeled logs, learns the **contextual semantics of distributed system** behavior rather than memorizing specific strings.
 
 ---
 
@@ -27,7 +28,7 @@ Classify distributed system log lines as Normal or Anomaly in real time, using a
 
 1. Load the HDFS_v1 dataset (`Event_traces.csv` + `anomaly_label.csv`) and merge on `BlockId` via `dataset_builder.py`
 2. Convert labels (`Normal -> 0`, `Anomaly -> 1`) and perform a stratified 80 / 10 / 10 split into `train.csv`, `val.csv`, `test.csv`
-3. Apply contextual masking to remove ephemeral identifiers (IP addresses, block IDs, timestamps) from log text.
+3. Strip ephemeral entropy (IP addresses, block IDs, timestamps) from the `Features` column via contextual masking
 4. EDA: word count distribution, class distribution
 5. Tokenize the `Features` column using WordPiece (DistilBERT tokenizer, max length 128)
 6. Load frozen DistilBERT backbone, inject PEFT LoRA adapters into the `q_lin` and `v_lin` projection layers
@@ -65,6 +66,7 @@ BlockId mapped to a Normal / Anomaly label.
 
 Log events are very short; word counts cluster between 5 and 15 words. This is characteristic of structured machine logs: they follow templated formats with variable fields (block IDs, IP addresses, operation names). The tight length distribution means padding overhead is minimal and `max_length = 128` tokens is more than sufficient for all logs.
 
+The class distribution shows heavy skew toward Normal logs. The HDFS dataset has extreme class imbalance; anomalies are rare events by definition. This is the operational reality of production monitoring : the overwhelming majority of logs are normal. Evaluation must focus on Recall and F1 for the anomaly class, not overall accuracy.
 
 ---
 
@@ -82,10 +84,13 @@ The dataset builder pipeline runs as follows :
 
 **Step 5 :** Keep only the relevant columns : `BlockId`, `Features`, `TimeInterval`, `Latency`, `Label`, `Type`
 
+Only the textual `Features` column is eventually tokenized for DistilBERT; the remaining columns (`TimeInterval`, `Latency`, `Type`) are preserved in the processed CSVs for future feature engineering (for example a hybrid tabular + text model), even though the current classifier does not consume them.
 
+### Contextual Masking : 
 
 Raw log events inside the `Features` column contain ephemeral identifiers; block IDs like `blk_-1608999687919862906`, IP addresses like `10.250.19.102:50010`, and timestamps. These values are unique per log event; they carry no semantic information about whether the event is normal or anomalous.
 
+If the model sees `blk_-1608999687919862906` in training, it may learn to associate that specific block ID with normality, then fail on a normal log with a different block ID. Contextual masking replaces these tokens with generic placeholders (`<BLOCK>`, `<IP>`, `<NUM>`) before tokenization. This forces the attention mechanism to learn the structural pattern of the log rather than memorizing specific values.
 
 This is the log preprocessing principle: strip the noise, preserve the signal.
 
@@ -104,6 +109,7 @@ The component tokens `Null`, `Pointer`, `Exception`, `Failed` all carry semantic
 
 ### CLS Token Pooling : 
 
+DistilBERT produces a 768-dimensional vector for every token in the input. For classification, a single fixed-size representation of the entire log event is needed. The `[CLS]` (classification) token is a special token prepended to every input; by design and training, its output embedding is a summary of the entire sequence. The 768-dimensional `[CLS]` vector is extracted and passed to the classification head.
 
 ### Stratified Split : 
 
@@ -190,7 +196,9 @@ Where :
 
 Parameter count comparison:
 
+$$\Delta W_{\text{full}}: 768 \times 768 = 589{,}824$$
 
+$$\Delta W_{\text{LoRA}}: 8 \times 768 + 768 \times 8 = 12{,}288$$
 
 A 98% reduction in parameters for this matrix alone.
 
@@ -258,6 +266,7 @@ Dataset Builder (merge on BlockId, label conversion, column selection)
     |
 Train / Val / Test (stratified 80/10/10 split)
     |
+Contextual masking (strip IPs, block IDs, timestamps on Features column)
     |
 Tokenizer (WordPiece, max_length=128, [CLS] prepended)
     |
@@ -404,6 +413,7 @@ Each checkpoint in `checkpoints/` bundles the PEFT adapter weights and the token
 
 `predictor.py` loads three pieces at startup: the tokenizer, the PEFT adapter, and the base DistilBERT model, then merges them into a single callable classifier.
 
+**Single prediction :** a raw log event goes in, gets contextually masked and tokenized, and comes back as a label with a confidence score.
 
 **Batch prediction :** a list (or uploaded CSV) of log events is tokenized and run through the model together, which amortizes the fixed overhead per call and is the recommended path for anything beyond a handful of log lines.
 
@@ -458,93 +468,54 @@ A `Dockerfile` packages the FastAPI service (and its dependencies) into a contai
 
 ---
 
----
+## Results & Benchmark Metrics :
 
-## Results & Benchmark Metrics : 
+The fine-tuned model checkpoint (`checkpoints/model`) was evaluated on the held-out test split (`data/processed/test.csv`). The reported metrics below are the measurements documented for this checkpoint.
 
-The fine-tuned model checkpoint (`checkpoints/model`) was evaluated on the independent, held-out test split (`data/processed/test.csv`). Below are the real-time classification metrics, parameter efficiency stats, and confusion matrix values computed directly from the trained LoRA adapter:
+### Classification Performance
 
-### Classification Performance :
+| Metric | Measured Value | Test Result |
+| :--- | :---: | :---: |
+| **Test Accuracy** | **1.0000** | **100.00% (400 / 400)** |
+| **Precision (Anomaly)** | **1.0000** | **100.00%** |
+| **Recall (Anomaly)** | **1.0000** | **100.00%** |
+| **F1-Score** | **1.0000** | **100.00%** |
+| **Specificity (Normal)** | **1.0000** | **100.00%** |
+| **Test Support** | **400 logs** | 200 Normal, 200 Anomaly |
 
-| Metric | Measured Value | Percentage | Note |
-| :--- | :---: | :---: | :--- |
-| **Test Accuracy** | **1.0000** | **100.00%** | 400 / 400 test logs correctly classified |
-| **Precision (Anomaly)** | **1.0000** | **100.00%** | 0 false alarms (0 false positives) |
-| **Recall (Anomaly)** | **1.0000** | **100.00%** | 0 missed anomalies (0 false negatives) |
-| **F1-Score** | **1.0000** | **100.00%** | Optimal harmonic mean of precision & recall |
-| **Specificity (Normal)** | **1.0000** | **100.00%** | All 200 normal logs correctly preserved |
-| **Support (Test Split)** | **400 Logs** | — | Balanced: 200 Normal (0), 200 Anomaly (1) |
-
----
-
-### Detailed Classification Report :
-
-              precision    recall  f1-score   support
-
-  Normal (0)     1.0000    1.0000    1.0000       200
- Anomaly (1)     1.0000    1.0000    1.0000       200
-
-    accuracy                         1.0000       400
-   macro avg     1.0000    1.0000    1.0000       400
-weighted avg     1.0000    1.0000    1.0000       400
-```
-
----
-
-### Confusion Matrix :
+### Confusion Matrix
 
 | | Predicted Normal (0) | Predicted Anomaly (1) | Total Actual |
 | :--- | :---: | :---: | :---: |
-| **Actual Normal (0)** | **200** (TN) | **0** (FP) | 200 |
-| **Actual Anomaly (1)** | **0** (FN) | **200** (TP) | 200 |
+| **Actual Normal (0)** | **200 (TN)** | **0 (FP)** | 200 |
+| **Actual Anomaly (1)** | **0 (FN)** | **200 (TP)** | 200 |
 | **Total Predicted** | 200 | 200 | **400** |
 
-* **True Negatives (TN) :** 200 — Normal logs correctly identified without false alarms.
-* **False Positives (FP) :** 0 — Zero healthy cluster logs incorrectly flagged.
-* **False Negatives (FN) :** 0 — Zero failure/corruption events missed.
-* **True Positives (TP) :** 200 — All anomaly signatures correctly detected.
-
----
-
-### LoRA Parameter & Storage Efficiency :
+### LoRA Parameter and Storage Efficiency
 
 | Parameter Category | Count | Proportion |
 | :--- | :---: | :---: |
 | **Total Base Model Parameters** | 67,694,596 | 100.00% |
 | **Frozen Parameters** | 66,955,010 | 98.9075% |
-| **Trainable LoRA Parameters** | **739,586** | **1.0925%** |
+| **Trainable LoRA Parameters + Classification Head** | **739,586** | **1.0925%** |
 | **Base Model Checkpoint Size** | ~268 MB | — |
-| **Saved LoRA Adapter Size** | **2.96 MB** | **98.9% Storage Reduction** |
+| **Saved LoRA Adapter Size** | **2.96 MB** | **98.9% smaller than base checkpoint** |
+
+### Inference Benchmarks
+
+- **Single-log inference (CPU):** ~120–180 ms
+- **Batch processing (CPU):** ~15–25 ms per log line
+- **Maximum sequence length:** 128 tokens
+- **Tokenizer:** DistilBERT WordPiece vocabulary (30,522 tokens)
+
+### Evaluation Scope and Limitations
+
+The reported 100% scores apply to this 400-example held-out test split; they should not be interpreted as a guarantee of production performance. The dataset's labels are strongly associated with explicit failure-related versus routine-operation vocabulary, making this benchmark comparatively separable. The README's documented audit reports 3,200 training rows and 400 test rows with **zero identical text entries** between those splits, but zero exact-string overlap alone does not rule out all forms of dataset or feature leakage.
+
+This is a **single-log binary classifier**, not a sequence-level detector of multi-step incidents. It may miss anomalies expressed through a sequence of individually normal-looking events, and performance may change under class imbalance, novel log patterns, or domain shift. Production use would require broader out-of-distribution testing, threshold calibration, and monitoring.
 
 ---
 
-### Latency Benchmarks :
-
-* **Single Log Inference (CPU) :** ~120 ms – 180 ms
-* **Batch Processing Throughput (CPU) :** ~15 ms – 25 ms per log line
-* **Max Sequence Length :** 128 tokens
-* **Tokenizer :** DistilBERT WordPiece Vocabulary (30,522 tokens)
-
----
-
-### Evaluation Integrity & Why 100% Metrics Occur :
-
-> [!NOTE]
-> **Engineering Reality Check:** In real-world machine learning reviews, seeing 100.0% across Accuracy, Precision, and Recall immediately prompts questions about data leakage or synthetic simplification. The following breakdown explains why this held-out test split produces 100% and where real-world production nuances differ:
-
-1. **Semantic Bimodality & Vocabulary Disjointness:**
-   - In `data/processed/processed_dataset.csv`, every single log line labeled **Anomaly (1)** contains explicit failure primitives: `ERROR:`, `FATAL:`, `DiskErrorException`, `SocketTimeoutException`, `BlockNotFoundException`, `ChecksumException`, or `NoRouteToHostException`.
-   - Conversely, every log line labeled **Normal (0)** contains routine operational primitives: `BLOCK*`, `PacketResponder`, `Received`, `Receiving`, `Served`, or `Deleting`.
-   - In transformer token space, these two vocabularies are completely non-overlapping and linearly separable. Even a modest LoRA adapter ($r=8$) easily achieves 100% test separation on this structured benchmark without overfitting.
-
-2. **Zero Train-Test Leakage:**
-   - Train (`3,200` rows) and Test (`400` rows) share **0 identical text entries** (0.0% overlap). The model generalized the underlying failure token concepts rather than memorizing exact row strings.
-
-3. **Single-Event vs Multi-Step Session Anomalies:**
-   - In raw distributed systems, the hardest anomalies are silent workflow disruptions (e.g., 20 normal `INFO` lines where a required commit step is missing). 
-   - Because this classifier operates on **isolated single lines**, the benchmark test split strictly evaluates explicit event classification. On ambiguous or out-of-distribution logs (e.g., *"Successfully transferred block after 1 failed attempt"*), confidence drops from 100% to ~81%, demonstrating natural model uncertainty.
-
----
 
 ## Failure Case Analysis : 
 
@@ -552,7 +523,7 @@ weighted avg     1.0000    1.0000    1.0000       400
 
 **Class imbalance at inference time :** In production HDFS deployments, anomaly rates are 0.01-0.1%. A model trained without class weighting or oversampling learns to be very confident about Normal predictions and may have a high effective decision threshold for Anomaly. False negatives (missed anomalies) are far more costly than false positives in production monitoring. Weighted cross-entropy loss or threshold tuning on a calibration set is worth revisiting before deployment.
 
-**Contextual masking information loss :** Stripping block IDs and IP addresses removes ephemeral noise but also removes structural signals. A repeated block ID appearing in multiple consecutive logs often indicates a retry loop or replication failure; that cross-log pattern is invisible to a single-event classifier. Sequential log analysis (grouping logs by session, block, or time window) recovers this signal but requires a more complex architecture than the current single-event classifier.
+**Contextual masking information loss :** Stripping block IDs and IP addresses from the `Features` column removes ephemeral noise but also removes structural signals. A repeated block ID appearing in multiple consecutive logs often indicates a retry loop or replication failure; that cross-log pattern is invisible to a single-event classifier. Sequential log analysis (grouping logs by session, block, or time window, which the preserved `TimeInterval` and `Latency` columns would support) recovers this signal but requires a more complex architecture than the current single-event classifier.
 
 **LoRA rank underfitting for complex anomaly types :** Rank 8 works well for the binary distinction between normal log patterns and common failure patterns. Novel zero-day anomalies that involve subtle semantic signals (a sequence of normal-looking operations that collectively indicate compromise) may require higher rank or additional task-specific heads to detect. The intrinsic dimension of more complex anomaly detection may exceed 8.
 
@@ -564,11 +535,11 @@ weighted avg     1.0000    1.0000    1.0000       400
 
 ## Future Work : 
 
-* Quantization (INT8 / FP16)
+* Quantization
 * ONNX export
 * TensorRT compilation
 * Publishing the adapter to the HuggingFace Hub
-* Production monitoring & alert integrations
+* Production monitoring
 * Cloud deployment
 * GPU inference optimization
 
@@ -576,10 +547,10 @@ weighted avg     1.0000    1.0000    1.0000       400
 
 ## Key Takeaways : 
 
-- PEFT LoRA makes large model fine-tuning tractable on small domain-specific datasets by replacing full parameter updates with low-rank factorized updates: **739,586 trainable parameters vs 67,694,596 total (1.0925% update ratio)**.
+- PEFT LoRA makes large model fine-tuning tractable on small domain-specific datasets by replacing full parameter updates with low-rank factorized updates. 739,586 trainable parameters vs 67,694,596 total; a 1.0925% update ratio.
 - The rank $r$ is the *intrinsic dimension bottleneck*. It controls how many linearly independent directions the adaptation is allowed to use. Rank 8 is sufficient for binary log classification; more complex tasks require higher rank.
 - $A$ compresses 768 dimensions to 8; $B$ broadcasts 8 dimensions back to 768. They co-adapt during training, with $A$ learning what to extract and $B$ learning how to inject it back into the representation.
-- WordPiece tokenization recovers semantic meaning from compound programmatic tokens by splitting them into sub-units that overlap with the pre-training vocabulary.
-- Contextual masking is the log-specific preprocessing step that separates structural learning from value memorization.
+- WordPiece tokenization recovers semantic meaning from compound programmatic tokens by splitting them into sub-units that overlap with the pre-training vocabulary. This is essential for log data where identifiers combine natural language words with programmatic suffixes.
+- Contextual masking is the log-specific preprocessing step that separates structural learning from value memorization. Without it, the *model overfits* to specific block IDs and IP addresses.
 - *Catastrophic forgetting* is prevented structurally; frozen weights cannot be modified. PEFT LoRA does not just mitigate catastrophic forgetting; it makes it mathematically impossible.
 - Production deployment of BERT-scale models for log classification requires batched inference, a real serving layer (FastAPI), quantization, and threshold calibration on a balanced evaluation set. Single-sample inference is not production-grade for high-throughput systems on its own.
