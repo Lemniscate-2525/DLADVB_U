@@ -1,12 +1,3 @@
----
-title: Log Anomaly Detection API
-emoji: 🛡️
-colorFrom: blue
-colorTo: indigo
-sdk: docker
-pinned: false
-app_port: 7860
----
 
 # Distributed System Anomaly Detection via LoRA Fine-Tuned DistilBERT : 
 
